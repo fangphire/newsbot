@@ -1,0 +1,16 @@
+name: Phase 0 feed check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  feed-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch candidate feeds
+        run: node check-feeds.mjs
